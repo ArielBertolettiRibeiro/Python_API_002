@@ -1,0 +1,79 @@
+# ========================
+# Variáveis de ambiente
+# ========================
+.env
+.env.*
+!.env.example
+
+# ========================
+# Python
+# ========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pdb
+
+# ========================
+# Ambientes virtuais
+# ========================
+venv/
+.venv/
+env/
+.env/
+ENV/
+
+# ========================
+# Dependências / build
+# ========================
+*.egg-info/
+dist/
+build/
+*.egg
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ========================
+# Banco de dados local
+# ========================
+*.db
+*.sqlite3
+*.sqlite
+
+# ========================
+# Logs
+# ========================
+*.log
+logs/
+
+# ========================
+# Testes / cobertura
+# ========================
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# ========================
+# IDEs e editores
+# ========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ========================
+# Sistema operacional
+# ========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ========================
+# Certificados e chaves
+# ========================
+*.pem
+*.key
+*.crt
+*.p12
