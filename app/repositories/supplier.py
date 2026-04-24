@@ -17,3 +17,15 @@ class SupplierRepository(BaseRepository[Supplier]):
             )
         )
         return list(result.scalars().all())
+    
+    async def get_by_name(self, name: str) -> Supplier | None:
+        result = await self.session.execute(select(self.model).where(self.model.name == name))
+        return result.scalars().first()
+
+    async def get_by_email(self, email: str) -> Supplier | None:
+        result = await self.session.execute(select(self.model).where(self.model.email == email))
+        return result.scalars().first()
+
+    async def get_by_phone(self, phone: str) -> Supplier | None:
+        result = await self.session.execute(select(self.model).where(self.model.phone == phone))
+        return result.scalars().first()

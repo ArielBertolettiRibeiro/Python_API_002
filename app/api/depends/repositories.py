@@ -5,6 +5,7 @@ from app.repositories.category import CategoryRepository
 from app.repositories.product import ProductRepository
 from app.repositories.supplier import SupplierRepository
 from app.repositories.user import UserRepository
+from app.repositories.stock_movement import StockMovementRepository
 
 async def get_category_repository(
     session: AsyncSession = Depends(get_session)
@@ -25,3 +26,8 @@ async def get_user_repository(
     session: AsyncSession = Depends(get_session)
 ) -> UserRepository:
     return UserRepository(session)
+
+async def get_stock_movement_repository(
+        session: AsyncSession = Depends(get_session)
+) -> StockMovementRepository:
+    return StockMovementRepository(session)
