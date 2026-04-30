@@ -32,8 +32,8 @@ class SupplierService:
             raise NotFoundException("Fornecedor não encontrado")
         return supplier
     
-    async def get_all(self) -> list[Supplier]:
-        return await self.repository.get_all()
+    async def get_all(self, skip: int = 0, limit: int = 20) -> list[Supplier]:
+        return await self.repository.get_all(skip=skip, limit=limit)
     
     async def update(self, supplier_id: uuid.UUID, data: SupplierUpdate) -> Supplier:
         supplier = await self.repository.get_by_id(supplier_id)

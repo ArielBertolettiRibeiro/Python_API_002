@@ -45,8 +45,8 @@ class ProductService:
             raise NotFoundException("SKU específico não encontrado")
         return product_sku
     
-    async def get_all(self) -> list[Product]:
-        return await self.repository.get_all()
+    async def get_all(self, skip: int = 0, limit: int = 20) -> list[Product]:
+        return await self.repository.get_all(skip=skip, limit=limit)
     
     async def deactivate(self, product_id: uuid.UUID) -> None:
 

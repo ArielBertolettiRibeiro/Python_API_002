@@ -21,8 +21,8 @@ class CategoryService:
             raise NotFoundException("Categoria não encontrada!")
         return category
     
-    async def get_all(self) -> list[Category]:
-        return await self.repository.get_all()
+    async def get_all(self, skip: int = 0, limit: int = 20) -> list[Category]:
+        return await self.repository.get_all(skip=skip, limit=limit)
     
     async def update(self, category_id: uuid.UUID, data: CategoryUpdate) -> Category:
         category = await self.repository.get_by_id(category_id)

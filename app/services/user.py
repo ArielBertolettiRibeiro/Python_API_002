@@ -28,8 +28,8 @@ class UserService:
             raise NotFoundException("Usuário não encontrado")
         return user
 
-    async def get_all(self) -> list[User]:
-        return await self.repository.get_all()
+    async def get_all(self, skip: int = 0, limit: int = 20) -> list[User]:
+        return await self.repository.get_all(skip=skip, limit=limit)
 
     async def update(self, user_id: uuid.UUID, data: UserUpdate) -> User:
         user = await self.repository.get_by_id(user_id)

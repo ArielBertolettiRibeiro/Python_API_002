@@ -68,8 +68,8 @@ class StockMovementService:
             raise NotFoundException("Movimentação não encontrada")
         return movement
 
-    async def get_all(self) -> list[StockMovement]:
-        return await self.stock_repository.get_all()
+    async def get_all(self, skip: int = 0, limit: int = 20) -> list[StockMovement]:
+        return await self.stock_repository.get_all(skip=skip, limit=limit)
 
     async def get_by_product(self, product_id: uuid.UUID) -> list[StockMovement]:
         product = await self.product_repository.get_by_id(product_id)
