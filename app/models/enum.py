@@ -1,5 +1,4 @@
 import enum
-from sqlalchemy import Enum as SAEnum
 
 class MovementType(enum.Enum):
     entrada = "entrada"

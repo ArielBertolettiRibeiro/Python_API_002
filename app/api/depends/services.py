@@ -34,6 +34,8 @@ async def get_user_service(
     return UserService(repository)
 
 async def get_stock_movement_service(
-        repository: StockMovementRepository = Depends(get_stock_movement_repository)
+        stock_repository: StockMovementRepository = Depends(get_stock_movement_repository),
+        user_repository: UserRepository = Depends(get_user_repository),
+        product_repository: ProductRepository = Depends(get_product_repository),
 ) -> StockMovementService:
-    return StockMovementService(repository)
+    return StockMovementService(stock_repository, user_repository, product_repository)

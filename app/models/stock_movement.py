@@ -7,13 +7,13 @@ from app.db.base import Base
 from app.models.enum import MovementType 
 
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from sqlalchemy import String, ForeignKey, Enum as SAEnum, Integer
+from sqlalchemy import String, Uuid, ForeignKey, Enum as SAEnum, Integer
 
 class StockMovement(TimestampMixin, Base):
     __tablename__ = "stock_movements"
 
     id: Mapped[uuid.UUID] = mapped_column(
-        primary_key=True, default=uuid.uuid4,
+        Uuid, primary_key=True, default=uuid.uuid4,
     )
 
     product_id: Mapped[uuid.UUID] = mapped_column(

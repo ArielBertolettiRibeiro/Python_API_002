@@ -5,23 +5,23 @@ from alembic import context
 from app.db.base import Base
 from app.db.session import engine
 
+# Importar todos os models garante que eles se registrem no Base.metadata
+# antes do autogenerate do Alembic ser executado
+from app.models.category import Category
+from app.models.supplier import Supplier
+from app.models.user import User
+from app.models.product import Product
+from app.models.stock_movement import StockMovement
+
 import asyncio
 
 from app.core.config import get_settings
 
-# this is the Alembic Config object, which provides
-# access to the values within the .ini file in use.
 config = context.config
 
-# Interpret the config file for Python logging.
-# This line sets up loggers basically.
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-# add your model's MetaData object here
-# for 'autogenerate' support
-# from myapp import mymodel
-# target_metadata = mymodel.Base.metadata
 target_metadata = Base.metadata
 
 # other values from the config, defined by the needs of env.py,
